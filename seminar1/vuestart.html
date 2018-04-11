@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1st Seminar</title>
+</head>
+
+<body>
+    <div id="app1" v-text="msg">
+    <!--v-text는 텍스트 그대로 화면에 출력-->
+        {{ msg }}
+    </div>
+    <div id="app2" v-html="msg">
+    <!--v-html은 태그를 적용 시켜서 화면에 출력-->
+        {{ msg }}
+    </div>
+    <!-- v-bind:style="colors"는 style="color:red"와 같은 의미! -->
+    <div id="app3" v-bind:style="color" v-html="msg">
+        {{ msg }}
+    </div>
+
+    <div id="app4">
+        <input type="text" v-model="msg">
+    </div>
+
+    <!--조건문-->
+    <div id="app5"> 
+        <p v-if="showName" v-bind:style="font">{{user.firstName}}</p>
+        <!-- <p v-else-if="showName==false" v-bind:style="font">{{user.lastName}}</p> -->
+        <p v-else v-bind:style="font">{{user.lastName}}</p>
+    </div>
+
+    <!--반복문-->
+    <div id="app6">
+        <ul>
+            <li v-for="c in contents" v-bind:style="list">{{c}}</li>
+        </ul>
+    </div>
+
+    <!--Event Handling-->
+    <div id="app7">
+        <input type="text" v-on:keyup="pressKey">
+        <button v-on:click="hello('Hello SANG MIN!')">button</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script>
+        Vue.config.devtools = true; //크롬 개발자 도구에서 Vue를 사용 할 수 있게 해줌
+        let model = {
+            msg: '<h2>Hello</h2>',
+            color: "color:red;",
+            font:"font: 50px bold; color: blue",
+            showName: true,
+            user:{
+                firstName:"SANG MIN",
+                lastName:"LEE"
+            },
+            contents:['I','am','a','boy'],
+            list:"list-style:none; font: 50px solid; color: green"
+        }
+        //한개의 instance
+        var app1 = new Vue({
+            el: '#app1',    //element
+            data: model     
+        });
+        var app2 = new Vue({
+            el: '#app2',
+            data: model
+        })
+        var app3 = new Vue({
+            el: '#app3',
+            data: model
+        })
+
+        var app4 = new Vue({
+            el: '#app4',
+            data: model
+        })
+
+        var app5 = new Vue({
+            el:'#app5',
+            data:model
+        })
+
+        var app6 = new Vue({
+            el: "#app6",
+            data: model
+        })
+
+        var app7 = new Vue({
+            el: "#app7",
+            data: model,
+            methods: {  //event handling
+                pressKey: (e) => {
+                    console.log(e.target.value);
+                },
+                hello: (name)=>{
+                    alert(name);
+                }
+                
+            }
+        })
+    </script>
+</body>
+
+</html>

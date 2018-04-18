@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>비 자식 부모 통신</title>
+</head>
+<body>
+    <div id="section1">
+        <h1>1번 section</h1>
+        <event-component></event-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+       var eventBus = new Vue();
+
+    
+       Vue.component('event-component', {
+           template : "<button v-on:click='showText'>버튼</button>",
+           methods : {
+               showText : function(){
+                   eventBus.$emit("eventbus", 1);
+               }
+           }
+       })
+
+       new Vue({
+           el: "#section1",
+           created: function(){
+               eventBus.$on('eventbus', function(num){
+                   console.log("이벤트 버스 값 : " + num);
+               })
+           }
+       })
+    </script>
+</body>
+</html>

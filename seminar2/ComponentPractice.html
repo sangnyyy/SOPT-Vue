@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>컴포넌트 연습</title>
+</head>
+<body>
+    <div id="section1">
+        <h1>1번 섹션</h1>
+        <global-component-1></global-component-1>
+        
+        <!--child to parent when using $emit-->
+        <global-component-2 v-on:show-text="alertText"></global-component-2>
+        
+        <!--parent to child-->
+        <local-component v-bind:name="message"></local-component>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.config.devtools = true;
+
+        Vue.component("global-component-1",{    //id, definition
+            template : "<div>전역 컴포넌트1</div>"
+        })
+
+        Vue.component("global-component-2",{
+            template : "<button v-on:click='showText'>버튼</button>",
+            data : function(){
+                return {cmpName : 'cmp1'}
+            },
+            methods : {
+                showText : function(){
+                    this.$emit("show-text");
+                }
+            }
+        })
+    
+        var cmp = {
+            props: ['name'],
+            template : "<div>지역 컴포넌트 {{ name }}</div>"
+            
+        }
+
+        new Vue({
+            el : "#section1",
+            data : {
+                message : "Hello"
+            },
+            components : {
+                'local-component' : cmp
+            }
+            ,
+            methods : {
+                alertText : () => {
+                    alert("local component function start!")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

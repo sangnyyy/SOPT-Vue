@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>#8 - 2Way Data binding</h1>
+    <div id="app">
+        <label>Name : </label>
+        <input type="text" v-model="name"><br>
+        <span>{{name}}</span><br>
+        <label>Age : </label>
+        <input type="text" v-model="age"><br>
+        <span>{{age}}</span><br>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script>
+        Vue.config.devtools = true;
+        new Vue({
+            el : "#app",
+            data : {
+                name : "",
+                age : ""
+            },
+            methods : {
+                logName : function(){
+                    
+                },
+                logAge : function(){
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

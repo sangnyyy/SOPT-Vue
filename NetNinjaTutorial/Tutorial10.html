@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            background: red;
+            display: inline-block;
+            padding: 10px;
+            color: #fff;
+            margin: 10px 0;
+        }
+
+        .available span {
+            background: green;
+        }
+
+        .nearby span:after {
+            content: "nearby";
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>#10 - Dynamic CSS</h1>
+    <div id="app">
+        <h2>Example 1</h2>
+        <div v-on:click="toggle" v-bind:class="{available : available}">
+            <span>Lee</span>
+        </div>
+        <hr>
+        <h2>Example 2</h2>
+        <div v-bind:class="compClasses">
+            <button v-on:click="nearby=!nearby">Toggle nearby</button>
+            <button v-on:click="toggle">Toggle available</button><br>
+            <span>Lee</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.config.devtools = true;
+        new Vue({
+            el: "#app",
+            data: {
+                available: false,
+                nearby: false
+            },
+            methods: {
+                toggle: function () {
+                    this.available = !this.available
+                }
+            },
+            computed: {
+                compClasses : function(){
+                    return {
+                        available : this.available,
+                        nearby : this.nearby
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

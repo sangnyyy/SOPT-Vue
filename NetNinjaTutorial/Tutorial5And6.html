@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas{
+            width:600px;
+            padding : 200px 20px;
+            text-align : center;
+            border : 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>#5 - Events, #6 - Event Modifiers</h1>
+    <div id="app">
+        
+
+        <!-- <button @click="add(1)">Add a year</button> -->
+        <button @click.once="add(1)">Add a year</button>
+        <button v-on:click="sub(1)">Subtract a year</button>
+        <button @dblclick="add(10)">Add a ten year</button>
+        <button v-on:dblclick="sub(10)">Subtract a ten year</button>
+        <p>My age is {{ age }}</p>
+        <div id="canvas" v-on:mousemove="updateXY">
+            {{x}}, {{y}}
+        </div>
+        <!-- <a v-on:click="cl" href="http://www.smuasset.ga">SMU ASSET</a> -->
+        <a v-on:click.prevent="cl" href="http://www.smuasset.ga">SMU ASSET</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.config.devtools = true;
+        new Vue({
+            el:"#app",
+            data : {
+                age : 28,
+                x : 0,
+                y : 0
+            },
+            methods : {
+                add : function(year){
+                    this.age += year;
+                },
+                sub : function(year){
+                    this.age -= year;
+                },
+                updateXY: function(event){
+                    this.x = event.offsetX;
+                    this.y = event.offsetY;
+                },
+                cl : function(){
+                    alert("You Clicked me");
+                }
+            }
+        })
+      </script>
+</body>
+</html>

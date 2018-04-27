@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>#12 - Looping with v-for</h1>
+    <div id="app">
+        <h2>Looping through lists</h2>
+        <ul>
+            <li v-for="(character, index) in characters">{{index}}.{{character}}</li>
+        </ul>
+        <ul>
+            <li v-for="profile in profiles">{{profile.name}}-{{profile.age}}</li>
+        </ul>
+        <template v-for="profile in profiles">
+            <h3>{{profile.name}}</h3>
+            <p>{{profile.age}}</p>
+        </template>
+        <temp v-for="profile in profiles">
+            <div v-for="(val,key) in profile">
+                <p>{{key}}-{{val}}</p>
+            </div>
+        </temp>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                characters:['Mario','Luigi','Lee'],
+                profiles:[
+                    {
+                        name : "Lee",
+                        age : 28
+                    },
+                    {
+                        name : "Park",
+                        age : 50
+                    }
+                ]
+            },
+            methods:{
+
+            }         
+        })       
+    </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
   <div>
 
       <transition name="fade">
-          <p v-if="show">Hello</p>
+          <p v-if="show">Fade</p>
       </transition>
       <button @click="show = !show">Fade Button</button>
   </div>

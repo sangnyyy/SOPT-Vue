@@ -6,7 +6,7 @@
 
 * 2차 세미나 : directive 사용법, MVVM 모델의 이해, 크롬 개발자 도구(Vue)
 * 3차 세미나 : 컴포넌트(전역, 지역), 부모-자식(비 부모-자식)통신
-* 4차 세미나 : Vue CLI, Todo List 만들어보기, List Transition
+* 4차 세미나 : Vue CLI, Todo List 만들어보기, List Transition, Fontawesome 적용
 ---
 
 # cli-project

@@ -7,10 +7,12 @@ import VueRouter from 'vue-router'
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 const User = App.components.User
+const Userpost = App.components.Userpost
 
 const router = new VueRouter({
   routes: [
-    { path: '/user/:id', component: User }
+    { path: '/user/:id', component: User },
+    { path: '/user/:id/post/:post', component: Userpost }
   ],
   mode : 'history'
 })

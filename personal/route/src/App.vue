@@ -6,10 +6,13 @@
 
 <script>
 import User from "./components/User"
+import Userpost from "./components/Userpost"
+
+
 export default {
   name: 'App',
   components : {
-    User
+    User, Userpost
   }
 }
 </script>

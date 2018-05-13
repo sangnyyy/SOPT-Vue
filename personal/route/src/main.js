@@ -8,11 +8,21 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 const User = App.components.User
 const Userpost = App.components.Userpost
+const UserProfile = App.components.UserProfile
+
+const UserChildren = { template : '<div>Children</div>' }
 
 const router = new VueRouter({
   routes: [
-    { path: '/user/:id', component: User },
-    { path: '/user/:id/post/:post', component: Userpost }
+    { path: '/user/:id/post/:post', component: Userpost },
+    { path : '/user/:id', component : User, children : [
+      {
+        path : 'children', component : UserChildren
+      },
+      {
+        path : 'profile', component : UserProfile
+      }
+    ] }
   ],
   mode : 'history'
 })
@@ -23,4 +33,4 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
-})
+}).$mount('#app')

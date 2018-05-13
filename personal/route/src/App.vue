@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import User from "./components/User"
 import Userpost from "./components/Userpost"
-
+import UserProfile from "./components/UserProfile"
 
 export default {
   name: 'App',
   components : {
-    User, Userpost
+    User, Userpost, UserProfile
   }
 }
 </script>

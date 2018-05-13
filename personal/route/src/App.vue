@@ -10,10 +10,13 @@ import User from "./components/User"
 import Userpost from "./components/Userpost"
 import UserProfile from "./components/UserProfile"
 import UserName from "./components/UserName"
+import UserProps from "./components/UserProps"
+
+
 export default {
   name: 'App',
   components : {
-    User, Userpost, UserProfile, UserName
+    User, Userpost, UserProfile, UserName, UserProps
   }
 }
 </script>

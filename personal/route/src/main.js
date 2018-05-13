@@ -11,6 +11,7 @@ const Userpost = App.components.Userpost
 const UserProfile = App.components.UserProfile
 const UserChildren = { template : '<div>Children</div>' }
 const UserName = App.components.UserName
+const UserProps = App.components.UserProps
 
 const router = new VueRouter({
   routes: [
@@ -26,7 +27,8 @@ const router = new VueRouter({
         }
       ] 
     },
-    { path : '/username', name : 'username', component : UserName }
+    { path : '/username', name : 'username', component : UserName },
+    { path : '/userprops/:id' ,props : true, component : UserProps}
   ],
   mode : 'history'
 })

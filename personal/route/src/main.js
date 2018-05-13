@@ -9,20 +9,24 @@ Vue.use(VueRouter)
 const User = App.components.User
 const Userpost = App.components.Userpost
 const UserProfile = App.components.UserProfile
-
 const UserChildren = { template : '<div>Children</div>' }
+const UserName = App.components.UserName
 
 const router = new VueRouter({
   routes: [
     { path: '/user/:id/post/:post', component: Userpost },
-    { path : '/user/:id', component : User, children : [
-      {
-        path : 'children', component : UserChildren
-      },
-      {
-        path : 'profile', component : UserProfile
-      }
-    ] }
+    { path : '/user/:id', 
+      component : User, 
+      children : [
+        {
+          path : 'children', component : UserChildren
+        },
+        {
+          path : 'profile', component : UserProfile
+        }
+      ] 
+    },
+    { path : '/username', name : 'username', component : UserName }
   ],
   mode : 'history'
 })

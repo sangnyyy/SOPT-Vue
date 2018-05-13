@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <router-link :to="{ name : 'username' }">User Name</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -8,11 +9,11 @@
 import User from "./components/User"
 import Userpost from "./components/Userpost"
 import UserProfile from "./components/UserProfile"
-
+import UserName from "./components/UserName"
 export default {
   name: 'App',
   components : {
-    User, Userpost, UserProfile
+    User, Userpost, UserProfile, UserName
   }
 }
 </script>

@@ -1,4 +1,4 @@
-# SOPT-Vue
+# Vue
 ![vue](./image/vue.jpeg)
 
 ---

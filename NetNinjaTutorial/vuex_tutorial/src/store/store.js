@@ -26,10 +26,23 @@ export const store = new Vuex.Store({
     },
     // Vue devtools 에서 tracking이 가능하다!
     mutations:{ 
-        reducePrice:state=>{
+        reducePrice:(state, payload)=>{
+            // 트래킹이 어렵다. Action을 써야함!
+            // setTimeout(function(){
+            //     state.products.forEach( product => {
+            //         product.price -= 1;
+            //     })
+            // }, 3000)
             state.products.forEach( product => {
-                product.price -= 1;
+                product.price -= payload;
             })
+        }
+    },
+    actions:{
+        reducePrice: (context, payload)=>{
+            setTimeout(function(){
+                context.commit('reducePrice', payload)
+            }, 3000)
         }
     }
 });

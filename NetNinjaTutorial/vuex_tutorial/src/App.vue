@@ -17,12 +17,7 @@ export default {
   },
   data(){
     return {
-      products:[
-        {name:"banana", price:20},
-        {name:"apple", price:5},
-        {name:"kiwi", price:10},
-        {name:"pear", price:1}
-      ]
+      
     }
   }
 }

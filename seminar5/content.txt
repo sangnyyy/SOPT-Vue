@@ -1,0 +1,19 @@
+1.라우팅
+ - hash mode vs history mode 알아보기
+ - 네비게이션 가드 알아보기
+  * 로그인 한 화면과 로그인 안한 화면과의 차이라던가 ..
+  * 인증이 안된 화면을 보여주면 안되서 가드(guard)
+
+2.Vuex - Actions
+
+비순차적 또는 비동기 처리에는 commit() 대신에 dispatch()사용!
+
+컴포넌트 -> 비동기처리 -> 동기처리 -> 상태변경
+컴포넌트 -> Action  -> Mutation->state
+
+3.npm run build -> dist파일이 생성됨! -> 배포!
+
+4.Networking
+Client <-> Server(req와 res)
+
+5.Axios는 외부 라이브러리(Vue라이브러리 X)

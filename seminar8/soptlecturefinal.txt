@@ -1,0 +1,25 @@
+
+
+State는 페이지 리로드가 되면 데이터를 떨구기 떄문에 쿠키 혹은 local storage를 이용해야함.
+
+지원해주는 라이브러리가 있음 "vuex-persistedstate"
+
+npm install vuex-persistedstate --save
+npm install js-cookie --save
+
+개발자도구 -> application안에 vuex의 내용 = {%22boards%22:[]%2C%22user%22:70%2C%22canSignUp%22:false}
+
+filter를 사용하여 쿠키에 원하는 값만 넣게끔 설정가능!
+
+라우터에도 라이프사이클이 존재!파람이 변경될 때 라우팅이 업데이트 되는데 이때 네트워킹을 통해 api를 새로 호출하게해야함(beforeRouteUpdate)
+
+
+dist안의 내용물을 버킷에 옮기기
+
+권한 - 버킷정책생성기 - S3 Bucket Policy
+
+http://sopt-board-by-sml.s3-website.ap-northeast-2.amazonaws.com/
+
+Route53 cloud front s3(도메인 등록)
+
+proxy 테이블은 s3에 배포한상황에서는 적용이 안됨
